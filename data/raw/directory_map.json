@@ -1,0 +1,24 @@
+{
+  "_comment": "Fintara employee directory (synthetic). Master record for every person: canonical id, Slack id, Jira user and known aliases.",
+  "teams": [
+    {"id": "t_platform", "name": "Platform Team", "aliases": ["platform folks", "Infra team"]},
+    {"id": "t_data", "name": "Data Engineering", "aliases": ["Data Eng", "DE team", "data team"]},
+    {"id": "t_payments", "name": "Payments Team", "aliases": ["payments squad"]},
+    {"id": "t_seccomp", "name": "Security & Compliance", "aliases": ["Security and Compliance", "SecComp", "Compliance team"]},
+    {"id": "t_cto", "name": "CTO Office", "aliases": ["Office of the CTO"]}
+  ],
+  "people": [
+    {"id": "p_achen",     "name": "Alex Chen",      "slack_id": "U12345XYZ", "jira_user": "achen",     "email": "alex.chen@fintara.example",     "team": "Platform Team",        "title": "Staff Platform Engineer",   "aliases": ["A. Chen", "Alex"]},
+    {"id": "p_sjenkins",  "name": "Sarah Jenkins",  "slack_id": "U98765ABC", "jira_user": "sjenkins",  "email": "sarah.jenkins@fintara.example", "team": "Platform Team",        "title": "Senior Cloud Engineer",     "aliases": ["S. Jenkins", "Sarah J"]},
+    {"id": "p_tbrooks",   "name": "Tom Brooks",     "slack_id": "U77778TTT", "jira_user": "tbrooks",   "email": "tom.brooks@fintara.example",    "team": "Platform Team",        "title": "Site Reliability Engineer", "aliases": ["T. Brooks", "Tommy"]},
+    {"id": "p_ppatel",    "name": "Priya Patel",    "slack_id": "U22223PPP", "jira_user": "ppatel",    "email": "priya.patel@fintara.example",   "team": "Data Engineering",     "title": "Lead Data Engineer",        "aliases": ["P. Patel", "Priya"]},
+    {"id": "p_lnguyen",   "name": "Linh Nguyen",    "slack_id": "U66667LLL", "jira_user": "lnguyen",   "email": "linh.nguyen@fintara.example",   "team": "Data Engineering",     "title": "Analytics Engineer",        "aliases": ["L. Nguyen", "Linh"]},
+    {"id": "p_bwright",   "name": "Ben Wright",     "slack_id": "U20202BBB", "jira_user": "bwright",   "email": "ben.wright@fintara.example",    "team": "Data Engineering",     "title": "Data Engineer",             "aliases": ["B. Wright", "Benji"]},
+    {"id": "p_mgarcia",   "name": "Maria Garcia",   "slack_id": "U44445MMM", "jira_user": "mgarcia",   "email": "maria.garcia@fintara.example",  "team": "Payments Team",        "title": "Engineering Manager",       "aliases": ["M. Garcia"]},
+    {"id": "p_dkim",      "name": "David Kim",      "slack_id": "U55556DDD", "jira_user": "dkim",      "email": "david.kim@fintara.example",     "team": "Payments Team",        "title": "Backend Engineer",          "aliases": ["D. Kim"]},
+    {"id": "p_nsato",     "name": "Nina Sato",      "slack_id": "U10101NNN", "jira_user": "nsato",     "email": "nina.sato@fintara.example",     "team": "Payments Team",        "title": "Product Manager",           "aliases": ["N. Sato"]},
+    {"id": "p_rmalhotra", "name": "Raj Malhotra",   "slack_id": "U33334RRR", "jira_user": "rmalhotra", "email": "raj.malhotra@fintara.example",  "team": "Security & Compliance", "title": "Compliance Lead",          "aliases": ["R. Malhotra", "Raj"]},
+    {"id": "p_jowusu",    "name": "James Owusu",    "slack_id": "U99990JJJ", "jira_user": "jowusu",    "email": "james.owusu@fintara.example",   "team": "Security & Compliance", "title": "Security Engineer",        "aliases": ["J. Owusu"]},
+    {"id": "p_efischer",  "name": "Elena Fischer",  "slack_id": "U88889EEE", "jira_user": "efischer",  "email": "elena.fischer@fintara.example", "team": "CTO Office",           "title": "VP Engineering",            "aliases": ["E. Fischer", "Elena"]}
+  ]
+}

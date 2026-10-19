@@ -1,0 +1,97 @@
+{
+  "_comment": "10 evaluation questions. expected_winner is our hypothesis before running; must_include lists key facts checked by simple string match (case-insensitive).",
+  "queries": [
+    {
+      "id": "Q01",
+      "question": "Who worked on the last compliance audit, and what tools are used on the project each of them moved to next?",
+      "category": "multi-hop + temporal",
+      "expected_winner": "graph",
+      "gold_answer": "The last compliance audit was the Q2 2026 SOX Audit (ended 2026-06-30), staffed by Raj Malhotra, Sarah Jenkins and Linh Nguyen. Sarah Jenkins moved to Project Triton, which uses Terraform, Kubernetes and ArgoCD. Linh Nguyen moved to Project Atlas, which uses Snowflake, dbt, Airflow and Snowpipe Streaming. Raj Malhotra has no later project recorded.",
+      "must_include": ["Q2 2026 SOX Audit", "Sarah Jenkins", "Linh Nguyen", "Raj Malhotra", "Terraform", "Kubernetes", "ArgoCD", "dbt", "Airflow"],
+      "expected_graph_path": "(Project {category:'audit', latest end_date})<-[:WORKED_ON]-(Person)-[:WORKED_ON]->(next Project)-[:USES]->(Tool)"
+    },
+    {
+      "id": "Q02",
+      "question": "What API security decisions were made by the team that owns the service that failed in the most recent incident?",
+      "category": "multi-hop (3 hops)",
+      "expected_winner": "graph",
+      "gold_answer": "The most recent incident is INC-142 (2026-10-12), a ledger-db outage. ledger-db is owned by the Platform Team. The Platform Team's API security decisions are ADR-007 (mutual TLS for internal service-to-service APIs, approved by Elena Fischer and James Owusu) and ADR-009 (rotate API key secrets in Vault every 30 days, approved by Elena Fischer). ADR-008 is an API security decision but belongs to the Payments Team.",
+      "must_include": ["INC-142", "ledger-db", "Platform Team", "ADR-007", "ADR-009"],
+      "must_exclude": ["ADR-008"],
+      "expected_graph_path": "(Incident latest)-[:AFFECTED]->(Service)<-[:OWNS]-(Team)<-[:DECIDED_BY]-(Decision {tags contains 'api-security'})"
+    },
+    {
+      "id": "Q03",
+      "question": "If Alex Chen leaves the company next month, which product releases are at risk?",
+      "category": "multi-hop dependency chain",
+      "expected_winner": "graph",
+      "gold_answer": "Alex Chen owns ledger-db and auth-service. Triton GA depends directly on both. Horizon v3 GA depends on payments-api, which depends on ledger-db and auth-service. Alex is also assigned open tickets that block these releases: TRI-12 (ledger-db migration, blocks Triton GA) and HOR-8 (client credentials in auth-service, blocks Horizon v3 GA). Atlas Beta is not affected.",
+      "must_include": ["Triton GA", "Horizon v3 GA", "ledger-db", "auth-service"],
+      "must_exclude": ["Atlas Beta is at risk"],
+      "expected_graph_path": "(Person)-[:OWNS]->(Service)<-[:DEPENDS_ON*1..3]-(Release); (Person)<-[:ASSIGNED_TO]-(Ticket)-[:BLOCKS]->(Release)"
+    },
+    {
+      "id": "Q04",
+      "question": "Who approved the decision to use Snowpipe Streaming instead of Kafka Connect, and which projects does that decision affect?",
+      "category": "relationship lookup",
+      "expected_winner": "tie",
+      "gold_answer": "ADR-005 was approved by Elena Fischer on 2026-04-22 (proposed by Priya Patel, decided by Data Engineering). It affects Project Atlas and Project Horizon.",
+      "must_include": ["Elena Fischer", "Project Atlas", "Project Horizon"],
+      "expected_graph_path": "(Decision)-[:APPROVED_BY]->(Person); (Decision)-[:AFFECTS]->(Project)"
+    },
+    {
+      "id": "Q05",
+      "question": "Which open tickets are blocking the Triton GA release, and who is each one assigned to?",
+      "category": "structured filter",
+      "expected_winner": "graph",
+      "gold_answer": "Three open blockers: TRI-12 Migrate ledger-db to Aurora PostgreSQL (Alex Chen, In Progress), TRI-15 Fix Terraform state drift in prod VPC module (Sarah Jenkins, Open) and TRI-19 ArgoCD sync failures on auth-service (Tom Brooks, In Progress). TRI-8 also blocked Triton GA but is Done.",
+      "must_include": ["TRI-12", "TRI-15", "TRI-19", "Alex Chen", "Sarah Jenkins", "Tom Brooks"],
+      "expected_graph_path": "(Ticket {status <> 'Done'})-[:BLOCKS]->(Release {name:'Triton GA'}); (Ticket)-[:ASSIGNED_TO]->(Person)"
+    },
+    {
+      "id": "Q06",
+      "question": "Which tools has Linh Nguyen used across all of her projects?",
+      "category": "aggregation over 2 hops",
+      "expected_winner": "graph",
+      "gold_answer": "On the Q2 2026 SOX Audit: AuditBoard and Snowflake. On Project Atlas: Snowflake, dbt, Airflow and Snowpipe Streaming.",
+      "must_include": ["AuditBoard", "Snowflake", "dbt", "Airflow", "Snowpipe Streaming"],
+      "expected_graph_path": "(Person)-[:WORKED_ON]->(Project)-[:USES]->(Tool)"
+    },
+    {
+      "id": "Q07",
+      "question": "Why did the data team choose Snowpipe Streaming over Kafka Connect?",
+      "category": "rationale in prose",
+      "expected_winner": "vector",
+      "gold_answer": "Lower latency (p95 of 6 seconds versus 45 to 70 seconds for the file-based connector), fewer moving parts (no Kafka Connect cluster to run, which nobody on the team had operated), lower cost that scales with rows rather than files, and exactly-once loading through offset tokens.",
+      "must_include": ["6 seconds", "Kafka Connect", "exactly-once", "offset tokens"],
+      "expected_graph_path": "none (answer lives in ADR-005 text and Slack)"
+    },
+    {
+      "id": "Q08",
+      "question": "What was the root cause of the ledger-db outage in October 2026?",
+      "category": "narrative in prose",
+      "expected_winner": "vector",
+      "gold_answer": "A TRI-12 migration rehearsal ran a blocking DDL statement against the production primary without lock_timeout. It took an ACCESS EXCLUSIVE lock that blocked all writes and exhausted the PgBouncer connection pool for 47 minutes. Detection was slow because the pool saturation alert went to a muted channel.",
+      "must_include": ["lock_timeout", "ACCESS EXCLUSIVE", "PgBouncer", "rehearsal"],
+      "expected_graph_path": "partial: (Incident INC-142)-[:AFFECTED]->(ledger-db); root cause only in postmortem text"
+    },
+    {
+      "id": "Q09",
+      "question": "What is the escalation process for a SEV1 on payments-api?",
+      "category": "procedure in prose",
+      "expected_winner": "vector",
+      "gold_answer": "Primary on-call acknowledges within 5 minutes and opens an incident channel; within 10 minutes page the secondary on-call and the escalation manager Maria Garcia; page Platform on-call immediately if ledger-db or auth-service is involved; inform VP Engineering Elena Fischer if the SEV1 lasts over 30 minutes; customer support posts a status page update within 15 minutes.",
+      "must_include": ["5 minutes", "Maria Garcia", "Elena Fischer", "Platform", "status page"],
+      "expected_graph_path": "none (runbook text)"
+    },
+    {
+      "id": "Q10",
+      "question": "Who has the most open tickets on Project Atlas, and what are they?",
+      "category": "aggregation / counting",
+      "expected_winner": "graph",
+      "gold_answer": "Ben Wright has the most open tickets on Project Atlas: 3 (ATL-3 Consumer for the payments.v1 topic, ATL-5 Snowpipe Streaming offset token checkpointing, ATL-7 Dead letter handling for schema violations). Linh Nguyen and Priya Patel have one each (ATL-4, ATL-9).",
+      "must_include": ["Ben Wright", "ATL-3", "ATL-5", "ATL-7"],
+      "expected_graph_path": "(Ticket {status <> 'Done'})-[:PART_OF]->(Project Atlas); (Ticket)-[:ASSIGNED_TO]->(Person), count per person"
+    }
+  ]
+}

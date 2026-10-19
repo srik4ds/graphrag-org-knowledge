@@ -1,0 +1,92 @@
+{
+  "channel": "triton",
+  "messages": [
+    {
+      "type": "message",
+      "ts": "1790669520.000000",
+      "user": "U77778TTT",
+      "text": "<@U98765ABC> terraform plan on the prod VPC module shows 6 security group rule diffs. Looks like someone edited them in the console during on-call last night.",
+      "thread_ts": "1790669520.000000",
+      "reply_count": 3
+    },
+    {
+      "type": "message",
+      "ts": "1790670000.000000",
+      "user": "U98765ABC",
+      "text": "Yes, that drift is real. I will **import** the rules with `terraform import` and add a nightly drift check job in CI. Tracking it in TRI-15.",
+      "thread_ts": "1790669520.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1790670660.000000",
+      "user": "U12345XYZ",
+      "text": "Please also remove console write access to prod security groups. Use the break-glass role only, and log every use.",
+      "thread_ts": "1790669520.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1790671200.000000",
+      "user": "U98765ABC",
+      "text": "Agreed. TRI-15 blocks Triton GA, so I am treating it as high priority this sprint.",
+      "thread_ts": "1790669520.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1788969720.000000",
+      "user": "U77778TTT",
+      "text": "auth-service ArgoCD sync keeps failing on the prod cluster. The cert-manager CRDs get applied after the auth-service manifests.",
+      "thread_ts": "1788969720.000000",
+      "reply_count": 2
+    },
+    {
+      "type": "message",
+      "ts": "1788970500.000000",
+      "user": "U12345XYZ",
+      "text": "Put the CRDs in sync-wave -1 with the argocd.argoproj.io/sync-wave annotation, then retry. That is the usual fix for CRD ordering.",
+      "thread_ts": "1788969720.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1788975600.000000",
+      "user": "U77778TTT",
+      "text": "Sync waves fixed staging. Prod still flaky, keeping TRI-19 open.",
+      "thread_ts": "1788969720.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1791882300.000000",
+      "user": "U12345XYZ",
+      "text": "On INC-142: the rehearsal runbook pointed at the prod primary host name. That one is on me.",
+      "thread_ts": "1791882300.000000",
+      "reply_count": 3
+    },
+    {
+      "type": "message",
+      "ts": "1791882720.000000",
+      "user": "U98765ABC",
+      "text": "<@U12345XYZ> I will build a snapshot-restore environment so rehearsals never touch prod again (TRI-23).",
+      "thread_ts": "1791882300.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1791883200.000000",
+      "user": "U77778TTT",
+      "text": "PgBouncer saturation alerts go to the Platform pager from tomorrow (TRI-22).",
+      "thread_ts": "1791882300.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1791884460.000000",
+      "user": "U88889EEE",
+      "text": "Alex, please pair with Sarah on the ledger-db emergency runbook. Before Triton GA we cannot have only one person who knows how to operate ledger-db.",
+      "thread_ts": "1791882300.000000"
+    },
+    {
+      "type": "message",
+      "subtype": "channel_join",
+      "ts": "1783332000.000000",
+      "user": "U98765ABC",
+      "text": "<@U98765ABC> has joined the channel"
+    }
+  ]
+}

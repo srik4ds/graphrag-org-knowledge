@@ -1,0 +1,201 @@
+{
+  "source": "jira-export",
+  "issues": [
+    {
+      "key": "TRI-1",
+      "issue_type": "Story",
+      "summary": "Landing zone account structure for dev, staging, prod",
+      "description": "Create the three AWS accounts and the organization guardrails.",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "achen",
+      "reporter": "achen",
+      "epic": "Project Triton",
+      "created": "2026-03-02",
+      "resolved": "2026-03-27",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-4",
+      "issue_type": "Story",
+      "summary": "Production-grade VPC Terraform module",
+      "description": "Replace the prototype VPC module with a tested, versioned module.",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "sjenkins",
+      "reporter": "achen",
+      "epic": "Project Triton",
+      "created": "2026-07-07",
+      "resolved": "2026-07-24",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-8",
+      "issue_type": "Story",
+      "summary": "EKS cluster baseline for prod",
+      "description": "Node groups, IRSA, cluster add-ons and network policies.",
+      "status": "Done",
+      "priority": "High",
+      "assignee": "sjenkins",
+      "reporter": "achen",
+      "epic": "Project Triton",
+      "created": "2026-07-20",
+      "resolved": "2026-08-21",
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Triton GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-10",
+      "issue_type": "Task",
+      "summary": "Datadog agent and dashboards on EKS",
+      "description": "",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "tbrooks",
+      "reporter": "tbrooks",
+      "epic": "Project Triton",
+      "created": "2026-04-02",
+      "resolved": "2026-05-15",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-12",
+      "issue_type": "Story",
+      "summary": "Migrate ledger-db to Aurora PostgreSQL with zero downtime",
+      "description": "Logical replication to Aurora, rehearsal, cutover plan. The 12 Oct rehearsal caused INC-142.",
+      "status": "In Progress",
+      "priority": "Highest",
+      "assignee": "achen",
+      "reporter": "achen",
+      "epic": "Project Triton",
+      "created": "2026-08-25",
+      "resolved": null,
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Triton GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-15",
+      "issue_type": "Bug",
+      "summary": "Fix Terraform state drift in prod VPC module",
+      "description": "Security group rules were edited in the console during on-call and no longer match state.",
+      "status": "Open",
+      "priority": "High",
+      "assignee": "sjenkins",
+      "reporter": "tbrooks",
+      "epic": "Project Triton",
+      "created": "2026-09-29",
+      "resolved": null,
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Triton GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-17",
+      "issue_type": "Story",
+      "summary": "IAM roles for service accounts (IRSA) for platform services",
+      "description": "",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "sjenkins",
+      "reporter": "achen",
+      "epic": "Project Triton",
+      "created": "2026-08-03",
+      "resolved": "2026-08-28",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-19",
+      "issue_type": "Bug",
+      "summary": "ArgoCD sync failures on auth-service (CRD ordering)",
+      "description": "Sync fails when the cert-manager CRDs are applied after the auth-service manifests.",
+      "status": "In Progress",
+      "priority": "High",
+      "assignee": "tbrooks",
+      "reporter": "sjenkins",
+      "epic": "Project Triton",
+      "created": "2026-09-08",
+      "resolved": null,
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Triton GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-21",
+      "issue_type": "Task",
+      "summary": "Write ledger-db emergency runbook",
+      "description": "Action item from INC-142 so more than one engineer can act on ledger-db.",
+      "status": "Open",
+      "priority": "High",
+      "assignee": "achen",
+      "reporter": "tbrooks",
+      "epic": "Project Triton",
+      "created": "2026-10-14",
+      "resolved": null,
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-22",
+      "issue_type": "Task",
+      "summary": "Route PgBouncer saturation alerts to Platform pager",
+      "description": "Action item from INC-142.",
+      "status": "Open",
+      "priority": "High",
+      "assignee": "tbrooks",
+      "reporter": "tbrooks",
+      "epic": "Project Triton",
+      "created": "2026-10-14",
+      "resolved": null,
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "TRI-23",
+      "issue_type": "Task",
+      "summary": "Run migration rehearsals only on a restored snapshot",
+      "description": "Action item from INC-142.",
+      "status": "Open",
+      "priority": "High",
+      "assignee": "sjenkins",
+      "reporter": "achen",
+      "epic": "Project Triton",
+      "created": "2026-10-14",
+      "resolved": null,
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    }
+  ]
+}

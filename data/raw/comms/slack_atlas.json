@@ -1,0 +1,78 @@
+{
+  "channel": "atlas",
+  "messages": [
+    {
+      "type": "message",
+      "ts": "1776423780.000000",
+      "user": "U22223PPP",
+      "text": "Benchmark results are in: Snowpipe Streaming p95 is 6 seconds; the Kafka connector in file mode was 45 to 70 seconds. Also, nobody on the team wants to operate a Kafka Connect cluster.",
+      "thread_ts": "1776423780.000000",
+      "reply_count": 2
+    },
+    {
+      "type": "message",
+      "ts": "1776424200.000000",
+      "user": "U20202BBB",
+      "text": "+1. Offset tokens give us exactly-once per channel, and there are no staging files to clean up.",
+      "thread_ts": "1776423780.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1776425100.000000",
+      "user": "U88889EEE",
+      "text": "Convincing. Write it up as an ADR and I will approve it.",
+      "thread_ts": "1776423780.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1788532200.000000",
+      "user": "U66667LLL",
+      "text": "<@U20202BBB> I am getting schema violations from payments.v1 events with major version 2. Should they go to a dead letter table?",
+      "thread_ts": "1788532200.000000",
+      "reply_count": 2
+    },
+    {
+      "type": "message",
+      "ts": "1788532860.000000",
+      "user": "U20202BBB",
+      "text": "Yes. I opened ATL-7 for dead letter handling. Until then the consumer skips and logs them.",
+      "thread_ts": "1788532200.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1788533700.000000",
+      "user": "U66667LLL",
+      "text": "Thanks. My daily balances mart (ATL-4) needs those events, so I will wait for ATL-7.",
+      "thread_ts": "1788532200.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1790071200.000000",
+      "user": "U22223PPP",
+      "text": "Retention proposal for raw events: keep 400 days in Snowflake, then archive to S3.",
+      "thread_ts": "1790071200.000000",
+      "reply_count": 2
+    },
+    {
+      "type": "message",
+      "ts": "1790072280.000000",
+      "user": "U33334RRR",
+      "text": "Compliance needs 7 years for ledger entries, and the archive must stay queryable for auditors.",
+      "thread_ts": "1790071200.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1790073300.000000",
+      "user": "U22223PPP",
+      "text": "Understood. I will use external tables over the archive. Updating ATL-9.",
+      "thread_ts": "1790071200.000000"
+    },
+    {
+      "type": "message",
+      "subtype": "bot_message",
+      "ts": "1788242400.000000",
+      "bot_id": "B01",
+      "text": "Airflow: nightly_reconciliation succeeded in 14m"
+    }
+  ]
+}

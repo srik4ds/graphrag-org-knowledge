@@ -1,0 +1,21 @@
+# Core LangChain / LangGraph
+langchain-core>=1.0
+langchain-openai>=1.0          # ChatOpenAI + OpenAIEmbeddings pointed at Nebius
+langchain-neo4j>=0.6           # Neo4jGraph
+langchain-text-splitters>=1.0  # RecursiveCharacterTextSplitter
+langgraph>=1.0                 # StateGraph orchestration
+
+# Database driver (installed by langchain-neo4j, pinned here for clarity)
+neo4j>=5.20
+
+# Data handling
+pyyaml>=6.0                    # wiki frontmatter
+tiktoken>=0.7                  # token counting for chunk sizes
+python-dotenv>=1.0
+
+# UI
+streamlit>=1.50
+pandas>=2.0
+
+# Tests
+pytest>=8.0

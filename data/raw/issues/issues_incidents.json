@@ -1,0 +1,53 @@
+{
+  "source": "jira-export",
+  "issues": [
+    {
+      "key": "INC-097",
+      "issue_type": "Incident",
+      "summary": "Kafka broker disk full delayed analytics events",
+      "description": "Broker 2 ran out of disk; consumers lagged for 3 hours.",
+      "status": "Done",
+      "priority": "High",
+      "assignee": "bwright",
+      "reporter": "bwright",
+      "epic": null,
+      "created": "2026-06-15",
+      "resolved": "2026-06-15",
+      "links": [],
+      "affected_service": "kafka-cluster",
+      "severity": "SEV3"
+    },
+    {
+      "key": "INC-118",
+      "issue_type": "Incident",
+      "summary": "payments-api latency spike",
+      "description": "Kong rate limit plugin in cluster mode added database round trips.",
+      "status": "Done",
+      "priority": "Highest",
+      "assignee": "dkim",
+      "reporter": "mgarcia",
+      "epic": null,
+      "created": "2026-08-03",
+      "resolved": "2026-08-03",
+      "links": [],
+      "affected_service": "payments-api",
+      "severity": "SEV2"
+    },
+    {
+      "key": "INC-142",
+      "issue_type": "Incident",
+      "summary": "ledger-db outage: connection pool exhausted",
+      "description": "Migration rehearsal DDL held an exclusive lock; PgBouncer pool exhausted for 47 minutes.",
+      "status": "Done",
+      "priority": "Highest",
+      "assignee": "achen",
+      "reporter": "tbrooks",
+      "epic": null,
+      "created": "2026-10-12",
+      "resolved": "2026-10-12",
+      "links": [],
+      "affected_service": "ledger-db",
+      "severity": "SEV1"
+    }
+  ]
+}

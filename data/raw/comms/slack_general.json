@@ -1,0 +1,34 @@
+{
+  "channel": "general",
+  "messages": [
+    {
+      "type": "message",
+      "ts": "1783098000.000000",
+      "user": "U33334RRR",
+      "text": "The Q2 SOX audit closed with a clean opinion. Thanks <@U98765ABC> for the evidence automation and <@U66667LLL> for the reconciliation tests.",
+      "thread_ts": "1783098000.000000",
+      "reply_count": 2
+    },
+    {
+      "type": "message",
+      "ts": "1783098720.000000",
+      "user": "U88889EEE",
+      "text": "Great work everyone. Sarah moves to Triton next week and Linh joins Atlas.",
+      "thread_ts": "1783098000.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1783099200.000000",
+      "user": "U98765ABC",
+      "text": "Thanks Raj! The evidence queries are documented in the audit schema README.",
+      "thread_ts": "1783098000.000000"
+    },
+    {
+      "type": "message",
+      "subtype": "channel_join",
+      "ts": "1782896400.000000",
+      "user": "U66667LLL",
+      "text": "<@U66667LLL> has joined the channel"
+    }
+  ]
+}

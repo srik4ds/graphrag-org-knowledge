@@ -1,0 +1,49 @@
+{
+  "channel": "payments",
+  "messages": [
+    {
+      "type": "message",
+      "ts": "1789477200.000000",
+      "user": "U10101NNN",
+      "text": "The partner portal (HOR-7) is blocked until auth-service supports the client credentials grant (HOR-8). <@U12345XYZ> what is your ETA?",
+      "thread_ts": "1789477200.000000",
+      "reply_count": 3
+    },
+    {
+      "type": "message",
+      "ts": "1789478520.000000",
+      "user": "U12345XYZ",
+      "text": "I am heads-down on the ledger-db migration for Triton. Earliest is mid November.",
+      "thread_ts": "1789477200.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1789479300.000000",
+      "user": "U44445MMM",
+      "text": "That puts Horizon v3 GA on 20 November at risk. Flagging it to Elena.",
+      "thread_ts": "1789477200.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1789480200.000000",
+      "user": "U88889EEE",
+      "text": "Noted. Alex is a single point of failure for both Triton GA and Horizon. Let us find a second engineer for auth-service.",
+      "thread_ts": "1789477200.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1790244600.000000",
+      "user": "U55556DDD",
+      "text": "Webhook signing uses HMAC-SHA256 over the timestamp and body, with a 5 minute replay window.",
+      "thread_ts": "1790244600.000000",
+      "reply_count": 1
+    },
+    {
+      "type": "message",
+      "ts": "1790245200.000000",
+      "user": "U10101NNN",
+      "text": "Two partners asked for Ed25519 signatures. I will put it in the backlog for after GA.",
+      "thread_ts": "1790244600.000000"
+    }
+  ]
+}

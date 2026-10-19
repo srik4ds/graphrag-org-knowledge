@@ -1,0 +1,70 @@
+{
+  "channel": "incidents",
+  "messages": [
+    {
+      "type": "message",
+      "ts": "1791814860.000000",
+      "user": "U77778TTT",
+      "text": "SEV1 declared: ledger-db is refusing new connections and payments-api is returning 503. <@U12345XYZ> paging you now.",
+      "thread_ts": "1791814860.000000",
+      "reply_count": 4
+    },
+    {
+      "type": "message",
+      "ts": "1791815400.000000",
+      "user": "U12345XYZ",
+      "text": "Looking. A session from the TRI-12 migration rehearsal holds an ACCESS EXCLUSIVE lock on the entries table.",
+      "thread_ts": "1791814860.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1791816240.000000",
+      "user": "U12345XYZ",
+      "text": "Cancelled the migration session. Lock released, PgBouncer pool is draining.",
+      "thread_ts": "1791814860.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1791816900.000000",
+      "user": "U44445MMM",
+      "text": "Payments confirms full recovery at 14:52 UTC. Roughly 18k payment attempts failed.",
+      "thread_ts": "1791814860.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1791817800.000000",
+      "user": "U88889EEE",
+      "text": "Thanks all. Tom, please run the postmortem by Thursday.",
+      "thread_ts": "1791814860.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1785748800.000000",
+      "user": "U55556DDD",
+      "text": "p99 for create-payment is above 4 seconds. Kong rate limiting was switched to cluster mode during the partner-tier test.",
+      "thread_ts": "1785748800.000000",
+      "reply_count": 2
+    },
+    {
+      "type": "message",
+      "ts": "1785749460.000000",
+      "user": "U44445MMM",
+      "text": "Revert it now and we will retest in staging.",
+      "thread_ts": "1785748800.000000"
+    },
+    {
+      "type": "message",
+      "ts": "1785750780.000000",
+      "user": "U55556DDD",
+      "text": "Reverted to local mode at 09:52, latency is back to 250 ms.",
+      "thread_ts": "1785748800.000000"
+    },
+    {
+      "type": "message",
+      "subtype": "bot_message",
+      "ts": "1791814920.000000",
+      "bot_id": "B02",
+      "text": "incident-bot: INC-142 created, severity SEV1"
+    }
+  ]
+}

@@ -1,0 +1,164 @@
+{
+  "source": "jira-export",
+  "issues": [
+    {
+      "key": "HOR-2",
+      "issue_type": "Story",
+      "summary": "Idempotency keys on write endpoints",
+      "description": "",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "dkim",
+      "reporter": "nsato",
+      "epic": "Project Horizon",
+      "created": "2026-02-09",
+      "resolved": "2026-03-20",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-3",
+      "issue_type": "Story",
+      "summary": "Payment intents endpoint",
+      "description": "",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "dkim",
+      "reporter": "nsato",
+      "epic": "Project Horizon",
+      "created": "2026-03-02",
+      "resolved": "2026-04-24",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-5",
+      "issue_type": "Story",
+      "summary": "Signed webhooks with replay protection",
+      "description": "",
+      "status": "In Progress",
+      "priority": "High",
+      "assignee": "dkim",
+      "reporter": "nsato",
+      "epic": "Project Horizon",
+      "created": "2026-06-15",
+      "resolved": null,
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Horizon v3 GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-7",
+      "issue_type": "Story",
+      "summary": "Partner onboarding portal",
+      "description": "",
+      "status": "Open",
+      "priority": "High",
+      "assignee": "nsato",
+      "reporter": "mgarcia",
+      "epic": "Project Horizon",
+      "created": "2026-07-01",
+      "resolved": null,
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Horizon v3 GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-8",
+      "issue_type": "Story",
+      "summary": "Support OAuth2 client credentials grant in auth-service",
+      "description": "Required by ADR-008 before partners can onboard.",
+      "status": "Open",
+      "priority": "Highest",
+      "assignee": "achen",
+      "reporter": "nsato",
+      "epic": "Project Horizon",
+      "created": "2026-08-05",
+      "resolved": null,
+      "links": [
+        {
+          "type": "blocks",
+          "target": "Horizon v3 GA"
+        }
+      ],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-9",
+      "issue_type": "Story",
+      "summary": "Redis-backed rate limit counters",
+      "description": "",
+      "status": "Done",
+      "priority": "Medium",
+      "assignee": "dkim",
+      "reporter": "mgarcia",
+      "epic": "Project Horizon",
+      "created": "2026-08-04",
+      "resolved": "2026-08-29",
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-11",
+      "issue_type": "Task",
+      "summary": "v2 to v3 migration guide",
+      "description": "",
+      "status": "Open",
+      "priority": "Medium",
+      "assignee": "nsato",
+      "reporter": "nsato",
+      "epic": "Project Horizon",
+      "created": "2026-09-01",
+      "resolved": null,
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-12",
+      "issue_type": "Task",
+      "summary": "Load test gateway plugins before production",
+      "description": "",
+      "status": "In Progress",
+      "priority": "Medium",
+      "assignee": "dkim",
+      "reporter": "mgarcia",
+      "epic": "Project Horizon",
+      "created": "2026-08-07",
+      "resolved": null,
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    },
+    {
+      "key": "HOR-14",
+      "issue_type": "Task",
+      "summary": "Gateway latency SLO alert",
+      "description": "",
+      "status": "Open",
+      "priority": "Medium",
+      "assignee": "mgarcia",
+      "reporter": "mgarcia",
+      "epic": "Project Horizon",
+      "created": "2026-08-07",
+      "resolved": null,
+      "links": [],
+      "affected_service": null,
+      "severity": null
+    }
+  ]
+}
